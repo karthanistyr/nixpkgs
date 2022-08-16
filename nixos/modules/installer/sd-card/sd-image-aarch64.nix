@@ -32,6 +32,11 @@
         enable_gic=1
         armstub=armstub8-gic.bin
 
+        [pi400]
+        kernel=u-boot-rpi-generic.bin
+        enable_gic=1
+        armstub=armstub8-gic.bin
+
         # Otherwise the resolution will be weird in most cases, compared to
         # what the pi3 firmware does by default.
         disable_overscan=1
@@ -68,6 +73,7 @@
         cp ${pkgs.ubootRaspberryPi3_64bit}/u-boot.bin firmware/u-boot-rpi3.bin
 
         # Add pi4 specific files
+        cp ${pkgs.ubootRaspberryPiGeneric_64bit}/u-boot.bin firmware/u-boot-rpi-generic.bin
         cp ${pkgs.ubootRaspberryPi4_64bit}/u-boot.bin firmware/u-boot-rpi4.bin
         cp ${pkgs.raspberrypi-armstubs}/armstub8-gic.bin firmware/armstub8-gic.bin
         cp ${pkgs.raspberrypifw}/share/raspberrypi/boot/bcm2711-rpi-4-b.dtb firmware/
